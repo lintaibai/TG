@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>快速排序</title>
+</head>
+
+<body>
+    <script>
+    // 解法1 快速排序 
+    // function quickSort(arr) {
+    //     if (arr.length <= 1) {
+    //         return arr
+    //     }
+    //     // 选择基准元素，这里我们选择第一个元素作为基准
+    //     let pivot = arr[0];
+    //     let left = [];
+    //     let right = [];
+    //     for (let i = 1; i < arr.length; i++) {
+    //         if (arr[i] <= pivot) {
+    //             left.push(arr[i]);
+    //         } else {
+    //             right.push(arr[i]);
+    //         }
+    //     }
+    //     return [...quickSort(left), pivot,...quickSort(right)]
+    // }
+    // 写法优化1-使用随机基准选择
+    //  let stepCount = 0; // 全局步数计数器
+    //  console.log(`步骤 ${stepCount}: 进入`);
+    //  function quickSort(arr) {
+    //     if (arr.length <= 1) {
+    //         return arr
+    //     }
+    //     stepCount++; // 基准选择计数
+    //     // 选择基准元素，这里我们选择第一个元素作为基准
+    //     const randomIndex = Math.floor(Math.random() * arr.length);
+    //     [arr[0], arr[randomIndex]] = [arr[randomIndex], arr[0]]; // 交换到第一个位置
+    //     let pivot = arr[0];
+    //     let left = [];
+    //     let right = [];
+    //     for (let i = 1; i < arr.length; i++) {
+    //         stepCount++; // 循环迭代计数
+    //         console.log(`步骤 ${stepCount}: 检查元素 ${arr[i]}, 当前基准: ${pivot}`);
+    //         if (arr[i] <= pivot) {
+    //             left.push(arr[i]);
+    //         } else {
+    //             right.push(arr[i]);
+    //         }
+    //     }
+    //     stepCount++; // 递归调用计数
+
+    //     return [...quickSort(left), pivot,...quickSort(right)]
+    // }
+
+    // 优化2-使用三数取中法选择基准（带步数计算）
+    //  let stepCount = 0; // 全局步数计数器
+    //  function quickSort(arr) {
+    //     if (arr.length <= 1) {
+    //         return arr
+    //     }
+    //     stepCount++; // 基准选择计数
+    //     // 选择基准元素，这里我们选择第一个元素作为基准
+    //     const mid = Math.floor(arr.length / 2);
+
+    //     // 比较三个数
+    //     if (arr[0] > arr[mid]) {
+    //         [arr[0], arr[mid]] = [arr[mid], arr[0]];
+    //     }
+    //     if (arr[0] > arr[arr.length - 1]) {
+    //         [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]];
+    //     }
+    //     if (arr[mid] > arr[arr.length - 1]) {
+    //         [arr[mid], arr[arr.length - 1]] = [arr[arr.length - 1], arr[mid]];
+    //     }
+    //     let pivot = arr[mid];;
+    //     let left = [];
+    //     let right = [];
+    //     for (let i = 1; i < arr.length; i++) {
+    //         if (i === mid) continue; // 跳过基准元素
+    //         stepCount++; // 循环迭代计数
+    //         console.log(`步骤 ${stepCount}: 检查元素 ${arr[i]}, 当前基准: ${pivot}`);
+    //         if (arr[i] <= pivot) {
+    //             left.push(arr[i]);
+    //         } else {
+    //             right.push(arr[i]);
+    //         }
+    //     }
+    //     stepCount++; // 递归调用计数
+
+    //     return [...quickSort(left), pivot,...quickSort(right)]
+    // }
+
+
+    // 优化3-使用原地分区
+    // let stepCount = 0; // 全局步数计数器
+    // function quickSort(arr, left = 0, right = arr.length - 1) {
+    //     if (left < right) {
+    //         stepCount++; // 递归调用计数
+    //         const mid = Math.floor((left + right) / 2);
+    //         // 比较三个数
+    //         if (arr[left] > arr[mid]) {
+    //             [arr[left], arr[mid]] = [arr[mid], arr[left]];
+    //         }
+    //         if (arr[left] > arr[right]) {
+    //             [arr[left], arr[right]] = [arr[right], arr[left]];
+    //         }
+    //         if (arr[mid] > arr[right]) {
+    //             [arr[mid], arr[right]] = [arr[right], arr[mid]];
+    //         }
+
+    //         [arr[mid], arr[right]] = [arr[right], arr[mid]];
+    //         const pivot = arr[right];
+    //         let i = left - 1;
+    //         for (let j = left; j < right; j++) {
+    //             stepCount++; // 循环迭代计数
+    //             if (arr[j] <= pivot) {
+    //                 i++;
+    //                 [arr[i], arr[j]] = [arr[j], arr[i]];
+    //             }
+    //         }
+    //         [arr[mid], arr[right]] = [arr[right], arr[mid]];
+    //         const partitionIndex = i + 1;
+    //         quickSort(arr, left, partitionIndex - 1);
+    //         quickSort(arr, partitionIndex + 1, right);
+    //     }
+    //     return arr;
+    // }
+
+
+    // 优化4-添加小数组插入排序优化
+    // let stepCount = 0; // 全局步数计数器
+    // function quickSort(arr, left = 0, right = arr.length - 1) {
+
+    //     // 对小数组使用插入排序
+    //     if (right - left < 10) {
+    //         insertionSort(arr, left, right);
+    //         stepCount++;
+    //         return arr;
+    //     }
+
+    //     if (left < right) {
+    //         stepCount++; // 递归调用计数
+    //         const mid = Math.floor((left + right) / 2);
+    //         // 比较三个数
+    //         if (arr[left] > arr[mid]) {
+    //             [arr[left], arr[mid]] = [arr[mid], arr[left]];
+    //         }
+    //         if (arr[left] > arr[right]) {
+    //             [arr[left], arr[right]] = [arr[right], arr[left]];
+    //         }
+    //         if (arr[mid] > arr[right]) {
+    //             [arr[mid], arr[right]] = [arr[right], arr[mid]];
+    //         }
+    //         [arr[mid], arr[right]] = [arr[right], arr[mid]];
+    //         const pivot = arr[right];
+    //         let i = left - 1;
+    //         for (let j = left; j < right; j++) {
+    //             stepCount++; // 循环迭代计数
+    //             if (arr[j] <= pivot) {
+    //                 i++;
+    //                 [arr[i], arr[j]] = [arr[j], arr[i]];
+    //             }
+    //         }
+    //         [arr[i + 1], arr[right]] = [arr[right], arr[i + 1]];
+    //         const partitionIndex = i + 1;
+    //         quickSort(arr, left, partitionIndex - 1);
+    //         quickSort(arr, partitionIndex + 1, right);
+    //     }
+    //     return arr;
+    // }
+
+
+    // // 辅助函数：插入排序（带步数计算）
+    // function insertionSort(arr, left, right) {
+    //     for (let i = left + 1; i <= right; i++) {
+    //         const key = arr[i];
+    //         let j = i - 1;
+    //         while (j >= left && arr[j] > key) {
+    //             arr[j + 1] = arr[j];
+    //             j--;
+    //         }
+    //         arr[j + 1] = key;
+    //     }
+    //     return arr;
+    // }
+
+
+
+    // 优化5 - 尾递归优化
+    let stepCount = 0; // 全局步数计数器
+    function quickSort(arr, left = 0, right = arr.length - 1) {
+
+        // 对小数组使用插入排序
+        if (right - left < 10) {
+            insertionSort(arr, left, right);
+            stepCount++;
+            return arr;
+        }
+
+        while (left < right) {
+            stepCount++; // 递归调用计数
+            const mid = Math.floor((left + right) / 2);
+
+            // 比较三个数
+            if (arr[left] > arr[mid]) {
+                [arr[left], arr[mid]] = [arr[mid], arr[left]];
+            }
+            if (arr[left] > arr[right]) {
+                [arr[left], arr[right]] = [arr[right], arr[left]];
+            }
+            if (arr[mid] > arr[right]) {
+                [arr[mid], arr[right]] = [arr[right], arr[mid]];
+            }
+
+            // 将基准放到right位置
+            [arr[mid], arr[right]] = [arr[right], arr[mid]];
+            const pivot = arr[right];
+
+
+            let i = left - 1;
+            for (let j = left; j < right; j++) {
+                stepCount++; // 循环迭代计数
+                if (arr[j] <= pivot) {
+                    i++;
+                    [arr[i], arr[j]] = [arr[j], arr[i]];
+                }
+            }
+            [arr[i + 1], arr[right]] = [arr[right], arr[i + 1]];
+
+
+            // 
+            const partitionIndex = i + 1;
+
+
+            // 先处理较小的子数组，减少递归深度
+            if (partitionIndex - left < right - partitionIndex) {
+                quickSort(arr, left, partitionIndex - 1);
+                left = partitionIndex + 1;
+            } else {
+                quickSort(arr, partitionIndex + 1, right);
+                right = partitionIndex - 1;
+            }
+
+        }
+        return arr;
+    }
+
+
+    // 辅助函数：插入排序（带步数计算）
+    function insertionSort(arr, left, right) {
+        stepCount++;
+        console.log(`步骤 ${stepCount}: 进入insertionSort, 范围: [${left}, ${right}]`);
+
+        for (let i = left + 1; i <= right; i++) {
+            stepCount++;
+            console.log(`步骤 ${stepCount}: 处理元素arr[${i}](${arr[i]})`);
+            const key = arr[i];
+            let j = i - 1;
+
+            stepCount++;
+            while (j >= left && arr[j] > key) {
+                stepCount++;
+                console.log(`步骤 ${stepCount}: 移动arr[${j}]到arr[${j + 1}]`);
+                arr[j + 1] = arr[j];
+                j--;
+            }
+
+            stepCount++;
+            arr[j + 1] = key;
+            console.log(`步骤 ${stepCount}: 将${key}放到位置${j + 1}，数组变为:`, arr);
+        }
+
+        stepCount++;
+        console.log(`步骤 ${stepCount}: 插入排序完成`);
+        return arr;
+    }
+
+
+
+
+
+
+
+    // 测试数据
+    let arr = [6, 3, 8, 2, 7, 5, 1, 4];
+    console.log("排序前：", arr);
+    let sortedArr = quickSort(arr);
+    console.log("排序后：", sortedArr);
+    console.log("总步数：", stepCount);
+    </script>
+</body>
+
+</html>

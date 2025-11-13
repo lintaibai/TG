@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选择排序</title>
+</head>
+
+<body>
+    <script>
+    // 解法1 选择排序
+    // const optimizedSelectionSort = (arr) => {
+    //     const n = arr.length;
+    //      // 外层循环控制排序轮数
+    //     for(let i=0;i<n-1;i++){
+    //         // 假设当前未排序区的第一个元素是最小的
+    //         let minIndex = i;
+    //         // 内层循环在未排序区找最小元素的索引
+    //         for(let j=i+1;j<n;j++){
+    //             if(arr[j]<arr[minIndex]){
+    //                 minIndex=j;
+    //             }
+    //         }
+    //         // 如果找到的最小元素不是当前位置，则交换
+    //         if(minIndex!==i){
+    //             [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+    //         }
+    //     }
+    //     return arr;
+    // };
+
+
+    // 1 优化 -双向选择排序,减少比较次数
+    // const optimizedSelectionSort = (arr) => {
+    //     const n = arr.length;
+
+    //     let left = 0;
+    //     let right = n - 1;
+    //     while(left < right){
+    //         let minIndex = left;
+    //         let maxIndex = left;  
+
+    //          // 优化内层循环，减少比较次数
+    //         for (let i = left + 1; i <= right; i++) {
+    //             // 一次比较同时更新最小和最大值
+    //             if (arr[i] < arr[minIndex]) {
+    //                 minIndex = i;
+    //             } else if (arr[i] > arr[maxIndex]) {
+    //                 maxIndex = i;
+    //             }
+    //         }
+    //         // 交换最小值到左端
+    //         if (minIndex !== left) {
+    //             [arr[left], arr[minIndex]] = [arr[minIndex], arr[left]];
+
+    //             // 如果最大值原本在left位置，已经被交换到minIndex位置
+    //             if (maxIndex === left) {
+    //                 maxIndex = minIndex;
+    //             }
+    //         }
+
+    //         // 交换最大值到右端
+    //         if (maxIndex !== right) {
+    //             [arr[right], arr[maxIndex]] = [arr[maxIndex], arr[right]];
+    //         }
+
+    //         left++;
+    //         right--;
+
+    //         return arr;
+    //     }
+    // };
+
+    // 2 添加提前终止条件
+    function optimizedSelectionSort(arr) {
+        const n = arr.length;
+
+        let left = 0;
+        let right = n - 1;
+
+        while (left < right) {
+            let minIndex = left;
+            let maxIndex = left;
+            let isSorted = true; // 添加标记，假设已排序
+
+            for (let i = left + 1; i <= right; i++) {
+                // 如果发现逆序对，标记为未排序
+                if (arr[i] < arr[i - 1]) {
+                    isSorted = false;
+                }
+
+                if (arr[i] < arr[minIndex]) {
+                    minIndex = i;
+                } else if (arr[i] > arr[maxIndex]) {
+                    maxIndex = i;
+                }
+            }
+
+            // 如果已经有序，提前终止
+            if (isSorted) {
+                break;
+            }
+
+            // 交换最小值到左端
+            if (minIndex !== left) {
+                [arr[left], arr[minIndex]] = [arr[minIndex], arr[left]];
+
+                if (maxIndex === left) {
+                    maxIndex = minIndex;
+                }
+            }
+
+            // 交换最大值到右端
+            if (maxIndex !== right) {
+                [arr[right], arr[maxIndex]] = [arr[maxIndex], arr[right]];
+            }
+
+            left++;
+            right--;
+        }
+
+        return arr;
+    }
+
+
+    // 示例使用
+    const arr = [38, 27, 43, 3, 9, 82, 10];
+    console.log("原始数组:", arr);
+    console.log("排序后数组:", optimizedSelectionSort(arr));
+    </script>
+</body>
+
+</html>

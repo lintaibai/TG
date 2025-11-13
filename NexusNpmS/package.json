@@ -1,0 +1,43 @@
+{
+  "name": "tbcode",
+  "version": "0.0.9",
+  "author": "林太白",
+  "license": "ISC",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "vue",
+    "react",
+    "tbcode",
+    "lintaibai",
+    "林太白"
+  ],
+  "descript": "前端code验证码纯前端组件，code ui from lintiabai",
+  "module": "./dist/tbcode.es.js",
+  "main": "./dist/tbcode.umd.js",
+  "style": "/dist/tbcode.css",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/tbcode.es.js",
+      "require": "./dist/tbcode.umd.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/tbcode.css",
+      "require": "./dist/tbcode.css"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.5.18"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.1.2"
+  }
+}

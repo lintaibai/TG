@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除字符串中的所有相邻重复项</title>
+</head>
+
+<body>
+    <script>
+    // 解法一  删除字符串中的所有相邻重复项
+    // function delMul(str){
+    //     const stack=[];
+    //     for(let i=0;i<str.length;i++){
+    //         if(stack[stack.length-1] === str[i]){
+    //           stack.pop();  
+    //         }else{
+    //             stack.push(str[i]);
+    //         }
+    //     }
+    //    return stack.join('');
+    // }
+
+    // 解法2 写法优化
+    // function delMul(str) {
+    //     const stack = [];
+    //     for (const char of str) {
+    //         if (stack[stack.length - 1] === char) {
+    //             stack.pop();
+    //         } else {
+    //             stack.push(char);
+    //         }
+    //     }
+    //     return stack.join('');
+    // }
+
+    // 解法2 写法优化
+    function delMul(str) {
+        const stack = [];
+        for (let i = 0; i < str.length; i++) {
+            const char = str[i];
+            if (stack.length > 0 && stack[stack.length - 1] === char) {
+                stack.pop();
+            } else {
+                stack.push(char);
+            }
+        }
+
+        return stack.join('');
+    }
+
+
+    console.log(delMul("abbaca"));
+    </script>
+</body>
+
+</html>

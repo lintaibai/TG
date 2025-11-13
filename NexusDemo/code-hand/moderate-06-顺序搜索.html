@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顺序搜索 Sequential Search</title>
+</head>
+
+<body>
+    <script>
+    // 1 顺序搜索 
+    // function iterativeBidirectionalSearch(arr, target) {
+    //     for (let i = 0; i < arr.length; i++) {
+    //         if (arr[i] == target) {
+    //             return i;
+    //         }
+    //     }
+    //     return -1;
+    // }
+    // 2-优化-哨兵模式 [1, 4, 2, 5]  2
+    // function iterativeBidirectionalSearch(arr, target) {
+    //     // 如果数组为空，直接返回-1
+    //     if (arr.length == 0) {
+    //         return -1
+    //     }
+    //     // 保存最后一个元素
+    //     const last = arr[arr.length - 1];
+    //     arr[arr.length - 1] = target; // 将最后一个元素设为哨兵
+    //     let i = 0;
+    //     while (arr[i] !== target) {
+    //         i++
+    //     }
+    //     // 恢复最后一个元素
+    //     arr[arr.length - 1] = last;
+    //     // 如果找到的位置不是最后一个元素，或者是最后一个元素且值匹配
+    //     if (i < arr.length - 1 || arr[arr.length - 1] === target){
+    //         return i
+    //     }
+    //     return -1;
+    // }
+
+    /**
+     * 3-双向迭代顺序搜索（从前和从后同时搜索）
+     * @param {Array} arr - 待搜索的数组
+     * @param {*} target - 要查找的目标元素
+     * @return {number} 目标元素的索引，如果未找到则返回-1
+     */
+    // function iterativeBidirectionalSearch(arr, target) {
+    //     let left = 0;
+    //     let right = arr.length - 1;
+    //     while (left <= right) {
+    //         // 从前向后检查
+    //         if (arr[left] === target) {
+    //             return left;
+    //         }
+
+    //         // 从后向前检查
+    //         if (arr[right] === target) {
+    //             return right;
+    //         }
+
+    //         left++;
+    //         right--;
+    //     }
+    //     return -1;
+    // }
+    // 功能测试
+    // const arr = [1, 4, 2, 5];
+    // let target = 2;
+    // let result = iterativeBidirectionalSearch(arr, target);
+    // console.log(`元素 ${target} 在数组中的索引是 ${result}`);
+
+    /**
+     * 4-基于概率的迭代顺序搜索（高频元素优先）
+     * @param {Array} arr - 待搜索的数组
+     * @param {*} target - 要查找的目标元素
+     * @param {Object} frequencyMap - 可选的频率映射表
+     * @return {number} 目标元素的索引，如果未找到则返回-1
+     */
+    // function iterativeProbabilisticSearch(arr, target, frequencyMap = null) {
+    //     // 如果没有提供频率映射表，则创建一个
+    //     if (!frequencyMap) {
+    //         frequencyMap = {};
+    //         for (const item of arr) {
+    //             frequencyMap[item] = (frequencyMap[item] || 0) + 1;
+    //         }
+    //     }
+    //     // 创建一个按频率排序的索引数组
+    //     const indices = Array.from({ length: arr.length }, (_, i) => i);
+    //     indices.sort((a, b) =>
+    //         (frequencyMap[arr[b]] || 0) - (frequencyMap[arr[a]] || 0)
+    //     );
+
+    //     // 按照排序后的索引顺序搜索
+    //     for (const i of indices) {
+    //         if (arr[i] === target) {
+    //             return i;
+    //         }
+    //     }
+
+    //     return -1;
+    // }
+
+    // // 使用示例
+    // const myList = [4, 2, 7, 1, 9, 5, 7, 2, 7];
+    // console.log(iterativeProbabilisticSearch(myList, 7)); // 输出: 2
+
+
+
+
+
+
+        /**
+     * 5-缓存优化的迭代顺序搜索
+     * @param {Array} arr - 待搜索的数组
+     * @param {*} target - 要查找的目标元素
+     * @return {number} 目标元素的索引，如果未找到则返回-1
+     */
+    function iterativeCachedSearch(arr, target) {
+        const length = arr.length; // 缓存数组长度
+        for (let i = 0; i < length; i++) {
+            if (arr[i] === target) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    // 使用示例
+    const myList = [4, 2, 7, 1, 9, 5];
+    console.log(iterativeCachedSearch(myList, 7)); // 输出: 2
+
+
+
+
+
+
+
+
+
+
+    
+    </script>
+</body>
+
+</html>

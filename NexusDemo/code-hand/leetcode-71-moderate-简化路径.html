@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简化路径</title>
+</head>
+
+<body>
+    <script>
+    // // 解法一  简化路径
+    // function jianhhua(str) {
+    //     const stack=[];
+    //     const arr =str.split('/');
+    //     for (let i = 0;i< arr.length; i++) {
+    //       if(arr[i]=='..'){
+    //         stack.pop();
+    //       }else if(arr[i] && arr[i] !=='.'){
+    //         stack.push(arr[i]);
+    //       }
+    //     }
+    //     return '/'+ stack.join('/')
+    // }
+
+    // 解2 优化
+    function simplifyPath(path) {
+        const stack = []; //空数组 
+        let arr = path.split('/');
+        for (const char of arr) {
+            if (char && char == '..') {
+                stack.pop()
+            } else if (char && char !== '.') {
+                stack.push(char);
+            }
+        }
+        return '/' + stack.join('/');
+    };
+    
+    console.log(simplifyPath("/.../a/../b/c/../d/./"));
+    </script>
+</body>
+
+</html>

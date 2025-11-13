@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最近的请求次数</title>
+</head>
+
+<body>
+    <script>
+    // 解决这种题目的主要思考方式就是队列的方式 先进先出 
+
+    // 解法一 
+    const RecentCounter = () => {
+        const requests = [];
+        const ping = (t) => {
+            requests.push(t);
+            while (requests[0] < t - 3000) {
+                requests.shift();
+            }
+            return requests.length;
+        }
+        return { ping };
+    }
+    // 解法二 优化写法
+    // 解法三 
+    const recentCounter = RecentCounter();
+    console.log(recentCounter.ping(1)); // 输出: 1
+    console.log(recentCounter.ping(100)); // 输出: 2
+    console.log(recentCounter.ping(3001)); // 输出: 3
+    console.log(recentCounter.ping(3002)); // 输出: 3
+    </script>
+</body>
+
+</html>

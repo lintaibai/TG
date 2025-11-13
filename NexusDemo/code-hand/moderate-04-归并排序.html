@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>归并排序</title>
+</head>
+
+<body>
+    <script>
+    // 解法1 归并排序
+    // const merge=(left,right)=>{
+    //     let result = [];
+    //     let leftIndex = 0;
+    //     let rightIndex = 0;
+    //     while (leftIndex < left.length && rightIndex < right.length) {
+    //         if(left[leftIndex]<right[rightIndex]){
+    //             result.push(left[leftIndex])
+    //             leftIndex++;
+    //         }else{
+    //             result.push(right[rightIndex])
+    //             rightIndex++;
+    //         }
+    //     }
+    //     return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+    // };
+    // const  mergeSort=(arr)=> {
+    //     // 数组长度小于等于1，则已经有序
+    //     if(arr.length<=1){
+    //         return arr;
+    //     }
+    //     // 分解阶段：将数组分成两半
+    //     const middle=Math.floor(arr.length / 2);
+    //     const left =arr.slice(0,middle);
+    //     const right =arr.slice(middle);
+    //     return merge(mergeSort(left),mergeSort(right))
+    // }
+
+
+
+
+
+
+
+
+
+
+
+    // 2 优化-小数组使用插入排序
+    // const INSERTION_SORT_THRESHOLD = 10;
+    // const insertionSort = (arr) => {
+    //     for (let i = 1; i < arr.length; i++) {
+    //         let key = arr[i];
+    //         let j = i - 1;
+    //         while (j >= 0 && arr[j] > key) {
+    //             arr[j + 1] = arr[j];
+    //             j--;
+    //         }
+    //         arr[j + 1] = key;
+    //     }
+    //     return arr;
+    // };
+    // const merge=(left,right)=>{
+    //     let result = [];
+    //     let leftIndex = 0;
+    //     let rightIndex = 0;
+    //     while (leftIndex < left.length && rightIndex < right.length) {
+    //         if(left[leftIndex]<right[rightIndex]){
+    //             result.push(left[leftIndex])
+    //             leftIndex++;
+    //         }else{
+    //             result.push(right[rightIndex])
+    //             rightIndex++;
+    //         }
+    //     }
+    //     return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+    // };
+    // const  mergeSort=(arr)=> {
+    //     // 数组长度小于等于1，则已经有序
+    //     if(arr.length<=INSERTION_SORT_THRESHOLD){
+    //         return insertionSort([...arr]);
+    //     }
+    //     // 分解阶段：将数组分成两半
+    //     const middle=Math.floor(arr.length / 2);
+    //     const left =arr.slice(0,middle);
+    //     const right =arr.slice(middle);
+    //     return merge(mergeSort(left), mergeSort(right));
+    // }
+
+
+    // 3-优化合并过程
+    // 检查左右数组是否已经有序，避免不必要的比较
+    // 这里感觉其实就是各种排序之间的特性进行优化
+    // const INSERTION_SORT_THRESHOLD = 10;
+    // const insertionSort = (arr) => {
+    //     for (let i = 1; i < arr.length; i++) {
+    //         let key = arr[i];
+    //         let j = i - 1;
+    //         while (j >= 0 && arr[j] > key) {
+    //             arr[j + 1] = arr[j];
+    //             j--;
+    //         }
+    //         arr[j + 1] = key;
+    //     }
+    //     return arr;
+    // };
+    // const merge=(left,right)=>{
+    //     // 检查是否可以直接合并
+    //     if (left[left.length - 1] <= right[0]) {
+    //         return left.concat(right);
+    //     }
+    //     if (right[right.length - 1] <= left[0]) {
+    //         return right.concat(left);
+    //     }
+    //     let result = [];
+    //     let leftIndex = 0;
+    //     let rightIndex = 0;
+    //     while (leftIndex < left.length && rightIndex < right.length) {
+    //         if(left[leftIndex]<right[rightIndex]){
+    //             result.push(left[leftIndex])
+    //             leftIndex++;
+    //         }else{
+    //             result.push(right[rightIndex])
+    //             rightIndex++;
+    //         }
+    //     }
+    //     return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+    // };
+    // const  mergeSort=(arr)=> {
+    //     // 数组长度小于等于1，则已经有序
+    //     if(arr.length<=INSERTION_SORT_THRESHOLD){
+    //         return insertionSort([...arr]);
+    //     }
+    //     // 分解阶段：将数组分成两半
+    //     const middle=Math.floor(arr.length / 2);
+    //     const left =arr.slice(0,middle);
+    //     const right =arr.slice(middle);
+    //     return merge(mergeSort(left), mergeSort(right));
+    // }
+
+    // 4-预先分配结果数组空间
+    // const INSERTION_SORT_THRESHOLD = 10;
+    // const insertionSort = (arr) => {
+    //     for (let i = 1; i < arr.length; i++) {
+    //         let key = arr[i];
+    //         let j = i - 1;
+    //         while (j >= 0 && arr[j] > key) {
+    //             arr[j + 1] = arr[j];
+    //             j--;
+    //         }
+    //         arr[j + 1] = key;
+    //     }
+    //     return arr;
+    // };
+    // const merge=(left,right)=>{
+    //     // 检查是否可以直接合并
+    //     if (left[left.length - 1] <= right[0]) {
+    //         return left.concat(right);
+    //     }
+    //     if (right[right.length - 1] <= left[0]) {
+    //         return right.concat(left);
+    //     }
+    //      // 预先分配结果数组空间
+    //     const result = new Array(left.length + right.length);
+    //     let leftIndex = 0, rightIndex = 0, resultIndex = 0;
+
+    //     while (leftIndex < left.length && rightIndex < right.length) {
+    //         result[resultIndex++] = left[leftIndex] < right[rightIndex] 
+    //         ? left[leftIndex++] 
+    //         : right[rightIndex++];
+    //     }
+    //      // 处理剩余元素
+    //     while (leftIndex < left.length) {
+    //         result[resultIndex++] = left[leftIndex++];
+    //     }
+    //     while (rightIndex < right.length) {
+    //         result[resultIndex++] = right[rightIndex++];
+    //     }
+
+    //     return result;
+    // };
+    // const  mergeSort=(arr)=> {
+    //     // 数组长度小于等于1，则已经有序
+    //     if(arr.length<=INSERTION_SORT_THRESHOLD){
+    //         return insertionSort([...arr]);
+    //     }
+    //     // 分解阶段：将数组分成两半
+    //     const middle=Math.floor(arr.length / 2);
+    //     const left =arr.slice(0,middle);
+    //     const right =arr.slice(middle);
+    //     return merge(mergeSort(left), mergeSort(right));
+    // }
+
+    // // 优化5-避免不必要的数组复制-使用索引而不是slice来减少内存分配
+    // const INSERTION_SORT_THRESHOLD = 10;
+    // const insertionSort = (arr) => {
+    //     for (let i = 1; i < arr.length; i++) {
+    //         let key = arr[i];
+    //         let j = i - 1;
+    //         while (j >= 0 && arr[j] > key) {
+    //             arr[j + 1] = arr[j];
+    //             j--;
+    //         }
+    //         arr[j + 1] = key;
+    //     }
+    //     return arr;
+    // };
+    // const merge=(left,right)=>{
+    //     // 检查是否可以直接合并
+    //     if (left[left.length - 1] <= right[0]) {
+    //         return left.concat(right);
+    //     }
+    //     if (right[right.length - 1] <= left[0]) {
+    //         return right.concat(left);
+    //     }
+    //      // 预先分配结果数组空间
+    //     const result = new Array(left.length + right.length);
+    //     let leftIndex = 0, rightIndex = 0, resultIndex = 0;
+
+    //     while (leftIndex < left.length && rightIndex < right.length) {
+    //         result[resultIndex++] = left[leftIndex] < right[rightIndex] 
+    //         ? left[leftIndex++] 
+    //         : right[rightIndex++];
+    //     }
+    //      // 处理剩余元素
+    //     while (leftIndex < left.length) {
+    //         result[resultIndex++] = left[leftIndex++];
+    //     }
+    //     while (rightIndex < right.length) {
+    //         result[resultIndex++] = right[rightIndex++];
+    //     }
+
+    //     return result;
+    // };
+    // const mergeSort = (arr, start = 0, end = arr.length) => {
+    //     // 数组长度小于阈值，使用插入排序
+    //     if (end - start <= INSERTION_SORT_THRESHOLD) {
+    //         return insertionSort(arr.slice(start, end));
+    //     }
+
+    //     const middle = Math.floor((start + end) / 2);
+    //     const left = mergeSort(arr, start, middle);
+    //     const right = mergeSort(arr, middle, end);
+    //     return merge(left, right);
+    // };
+
+
+    // 优化6-使用迭代而非递归实现
+    // const INSERTION_SORT_THRESHOLD = 10;
+    // const insertionSort = (arr) => {
+    //     for (let i = 1; i < arr.length; i++) {
+    //         let key = arr[i];
+    //         let j = i - 1;
+    //         while (j >= 0 && arr[j] > key) {
+    //             arr[j + 1] = arr[j];
+    //             j--;
+    //         }
+    //         arr[j + 1] = key;
+    //     }
+    //     return arr;
+    // };
+    // const merge = (arr, temp, left, mid, right) => {
+    //     // 检查是否已经有序
+    //     if (arr[mid - 1] <= arr[mid]) {
+    //         return;
+    //     }
+
+    //     // 合并两个有序区间
+    //     let i = left, j = mid, k = left;
+    //     while (i < mid && j < right) {
+    //         temp[k++] = arr[i] <= arr[j] ? arr[i++] : arr[j++];
+    //     }
+    //     while (i < mid) {
+    //         temp[k++] = arr[i++];
+    //     }
+    //     while (j < right) {
+    //         temp[k++] = arr[j++];
+    //     }
+
+    //     // 将合并结果复制回原数组
+    //     for (let idx = left; idx < right; idx++) {
+    //         arr[idx] = temp[idx];
+    //     }
+    // };
+    // const mergeSort = (arr) => {
+    //     const n = arr.length;
+    //     const temp = new Array(n);
+
+    //     // 使用插入排序处理小数组
+    //     for (let i = 0; i < n; i += INSERTION_SORT_THRESHOLD) {
+    //         const end = Math.min(i + INSERTION_SORT_THRESHOLD, n);
+    //         insertionSort(arr, i, end);
+    //     }
+
+    //     // 自底向上的归并排序
+    //     for (let size = INSERTION_SORT_THRESHOLD; size < n; size *= 2) {
+    //         for (let left = 0; left < n - size; left += 2 * size) {
+    //             const mid = left + size;
+    //             const right = Math.min(left + 2 * size, n);
+    //             merge(arr, temp, left, mid, right);
+    //         }
+    //     }
+
+    //     return arr;
+    // };
+
+    // 最终版本
+    const INSERTION_SORT_THRESHOLD = 10;
+
+    const insertionSort = (arr, start = 0, end = arr.length) => {
+        for (let i = start + 1; i < end; i++) {
+            let key = arr[i];
+            let j = i - 1;
+            while (j >= start && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = key;
+        }
+        return arr;
+    };
+
+    const merge = (left, right) => {
+        // 检查是否可以直接合并
+        if (left[left.length - 1] <= right[0]) {
+            return left.concat(right);
+        }
+        if (right[right.length - 1] <= left[0]) {
+            return right.concat(left);
+        }
+
+        // 预先分配结果数组空间
+        const result = new Array(left.length + right.length);
+        let leftIndex = 0,
+            rightIndex = 0,
+            resultIndex = 0;
+
+        while (leftIndex < left.length && rightIndex < right.length) {
+            result[resultIndex++] = left[leftIndex] < right[rightIndex] ?
+                left[leftIndex++] :
+                right[rightIndex++];
+        }
+
+        // 处理剩余元素
+        while (leftIndex < left.length) {
+            result[resultIndex++] = left[leftIndex++];
+        }
+        while (rightIndex < right.length) {
+            result[resultIndex++] = right[rightIndex++];
+        }
+
+        return result;
+    };
+
+    const mergeSort = (arr) => {
+        // 数组长度小于阈值，使用插入排序
+        if (arr.length <= INSERTION_SORT_THRESHOLD) {
+            return insertionSort([...arr]);
+        }
+
+        // 分解阶段：将数组分成两半
+        const middle = Math.floor(arr.length / 2);
+        const left = mergeSort(arr.slice(0, middle));
+        const right = mergeSort(arr.slice(middle));
+        return merge(left, right);
+    };
+
+    // 示例使用
+    const arr = [38, 27, 43, 3, 9, 82, 10];
+    console.log("原始数组:", arr);
+    console.log("排序后数组:", mergeSort(arr));
+    </script>
+</body>
+
+</html>

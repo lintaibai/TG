@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>有效括号</title>
+</head>
+
+<body>
+    <script>
+
+    // 解法一 
+    // function isValid(str) {
+    //     const stack = [];
+    //     for (let i = 0; i < str.length; i++) {
+    //         const char = str[i];
+    //         if (char === '(' || char === '{' || char === '[') {
+    //             // 如果是左括号，压入栈中
+    //             stack.push(char);
+    //         } else {
+    //             // 如果是右括号
+    //             if (stack.length === 0) {
+    //             	console.log('false');
+    //                 return false;
+    //             }
+    //             const top = stack.pop();
+    //             console.log(top,'stack.pop()');
+    //             if (top === '(' && char !== ')') {
+    //             	console.log('false');
+    //                 return false;
+    //             }
+    //             if (top === '{' && char !== '}') {
+    //             	console.log('false');
+    //                 return false;
+    //             }
+    //             if (top === '[' && char !== ']') {
+    //             	console.log('false');
+    //                 return false;
+    //             }
+    //         }
+    //     }
+    //     console.log(true);
+    //     return stack.length === 0;
+    // }
+
+
+
+
+    // 解法二 优化写法
+    // function isValid(str) {
+    //     const stack = [];
+    //     const bracketMap = {
+    //         '(': ')',
+    //         '{': '}',
+    //         '[': ']'
+    //     };
+    //     for (let i = 0; i < str.length; i++) {
+    //         const char = str[i];
+    //         if (char in bracketMap) {
+    //         	console.log(char,'char--')
+    //             // 如果是左括号，压入栈中
+    //             stack.push(char);
+    //         } else {
+    //             // 如果是右括号
+    //             if (stack.length === 0 || bracketMap[stack.pop()] !== char) {
+    //                 console.log('false');
+    //                 return false;
+    //             }
+    //         }
+    //     }
+    //     console.log(true);
+    //     return stack.length === 0;
+    // }
+
+
+
+    // 解法三 优化右符号压栈
+    function isValidKuohao(str){
+        const stack=[];
+        const mapData={
+            "{":"}",
+            "[":"]",
+            "(":")",
+        };
+        for(const char of str){
+            if(char in mapData){
+                stack.push(mapData[char])
+            }else if(stack.lenght ===0 || stack.pop() !== char){
+                return false;
+            }
+        }
+        return stack.length === 0;
+    }
+    
+
+    // 测试示例
+    const testCases = [
+        "()",
+        "()[]{}",
+        "(]",
+        "([)]",
+        "{[]}"
+    ];
+
+    testCases.forEach(s => {
+        console.log(`"${s}": ${isValidKuohao(s)}`);
+    });
+    </script>
+</body>
+
+</html>

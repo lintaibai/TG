@@ -1,0 +1,28 @@
+[package]
+name = "nexusrust"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+dotenv = "0.15" # 从环境变量加载配置
+mysql = "20.0" # 数据库连接
+actix-web = "4.5.0" # 开发 RESTful API接口
+bcrypt = "0.15" # 密码加密
+sqlx = { version = "0.7", features = ["mysql", "runtime-tokio-native-tls"] } # 数据库操作
+tokio = { version = "1", features = ["full"] } # 异步运行时，网络、文件I/O异步任务
+actix-cors = "0.6" # 跨域资源共享
+serde = { version = "1.0", features = ["derive"] } # 序列化和反序列化
+serde_json = "1.0" # JSON序列化和反序列化
+jsonwebtoken = "9" # JSON Web Token (JWT)认证
+chrono = { version = "0.4", features = ["serde"] } # 处理日期和时间
+log = "0.4" # 日志记录
+env_logger = "0.9" # 环境变量配置日志记录
+actix-multipart = "0.4"  # 处理文件上传
+futures = "0.3" # 使用和管理异步操作
+uuid = { version = "1.17.0", features = ["v4"] }  # 帮我们生成文件名
+mime_guess = "2.0" # 猜测文件类型
+actix-files = "0.6.2"  # 静态文件服务
+futures-util = "0.3" # 异步任务工具
+csv = "1.1" # CSV文件处理
+calamine = "0.21" # 解析Excel（.xlsx/.xls/.ods）
+umya-spreadsheet = "1.1"

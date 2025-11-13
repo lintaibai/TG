@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leetcode</title>
+</head>
+
+<body>
+    <script>
+    /*
+
+    14. 最长公共前缀
+
+    简单
+    相关标签
+    相关企业
+    编写一个函数来查找字符串数组中的最长公共前缀。
+
+    如果不存在公共前缀，返回空字符串 ""。
+
+
+    示例 1：
+
+    输入：strs = ["flower","flow","flight"]
+    输出："fl"
+    示例 2：
+
+    输入：strs = ["dog","racecar","car"]
+    输出：""
+    解释：输入不存在公共前缀。
+     
+
+    提示：
+
+    1 <= strs.length <= 200
+    0 <= strs[i].length <= 200
+    strs[i] 仅由小写英文字母组成
+
+    */
+    // console.log('flower'.split(''), '分割');
+
+
+
+
+   
+    
+
+
+        //  循环里面的字符串第一个的长度 i
+        //  循环外层 s
+        //  判断flower 下的f是否和flow 下的f相同 
+        // 相同=> 返回l拼接到第一个下面依次
+        // 不相同=> 返回原本的
+
+    // function strscommon(strs){
+    //     if(strs.length==0){
+    //         return '';
+    //     }
+    //     var allstring='';
+    //     for(var i=0;i<strs[0].length;i++){
+    //         var dataA=strs[0][i];
+    //         // 'flower'  f l o w e r 
+    //         // 循环第二个 
+    //         for(var s=1;s<strs.length;s++){
+    //             // 'flow' strs[s]  l!==l ||  i 字符串'flower' 5 长度> 'flow' 4 返回'flow'  
+    //             // 如果   
+    //             if(strs[0][i] !== strs[s][i] || i >= strs[s].length){
+    //                 return allstring; 
+    //             }
+    //             // allstring += dataA;
+    //         }
+    //         allstring += dataA;
+    //     }
+    // }
+     
+    var strs = ["flower", "flow", "flight"],flower = ['f', 'l'];
+      function strscommon(strs){
+        if(strs.length==0){
+         return ''   
+        };
+        var allstring = "";
+        for (var s = 0; s < strs[0].length; s++) {
+            var dataA = strs[0][s];
+            for (var m = 1; m < strs.length; m++) {
+                if ( s >= strs[m].length ||  strs[m][s] !== strs[0][s]) {
+                    return allstring;
+                }
+            }
+            allstring +=  strs[0][s];
+        }
+    }
+
+    console.log(strscommon(strs),'strsall');
+    </script>
+</body>
+
+</html>
