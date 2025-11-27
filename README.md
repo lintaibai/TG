@@ -24,6 +24,11 @@ title: 天工
 
 有些版本怕菜了被骂暂时没有放出来，需要的可以联系我star换取
 
+下面是我的小助理wx，正经人千万别加
+
+![img](https://diag.wuzhengai.com/nexusimgs/about/alipay-share-meizi.png?width=100&height=100)
+
+
 ### 👉项目更新轻重排名
 
 | 项目文件 |  相关技术栈 | 开发状态| 备注|
@@ -181,6 +186,7 @@ https://nexuslin.github.io/
 收款码 
 
 ![img](https://diag.wuzhengai.com/nexusimgs/about/alipay.png?width=100&height=100)
+
 
 👉相关链接
 
