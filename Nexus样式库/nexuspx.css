@@ -1,0 +1,191 @@
+/* px 原子化样式部分 */
+/* 字体 */
+.font08 {
+  font-size: 8px;
+}
+.font10 {
+  font-size: 10px;
+}
+.font13 {
+  font-size: 13px;
+}
+.font14 {
+  font-size: 14px !important;
+}
+.font16 {
+  font-size: 16px;
+}
+.font18 {
+  font-size: 18px;
+}
+.font20 {
+  font-size: 20px;
+}
+.font24 {
+  font-size: 24px;
+}
+.font26 {
+  font-size: 26px;
+}
+.font30 {
+  font-size: 30px;
+}
+.font44 {
+  font-size: 44px;
+}
+/* 行高 */
+.lineht20 {
+  line-height: 20px;
+}
+.lineht24 {
+  line-height: 24px !important;
+}
+.lineht28 {
+  line-height: 28px;
+}
+.lineht30 {
+  line-height: 30px;
+}
+.lineht40 {
+  line-height: 40px;
+}
+.lineht60 {
+  line-height:60px;
+}
+/* 高度 */
+.ht10 {
+  height: 10px;
+}
+.ht20 {
+  height: 20px;
+}
+.ht30 {
+  height: 30px;
+}
+.ht40 {
+  height: 40px;
+}
+.ht50 {
+  height: 50px;
+}
+.ht60 {
+  height: 60px;
+}
+.ht70 {
+  height: 70px;
+}
+.ht80 {
+  height: 80px;
+}
+.ht90 {
+  height: 90px;
+}
+.ht100 {
+  height: 100px;
+}
+.ht120 {
+  height: 120px;
+}
+.ht160 {
+  height: 160px;
+}
+.ht200 {
+  height: 200px;
+}
+.ht250 {
+  height: 250px;
+}
+.ht300 {
+  height: 300px;
+}
+.ht360 {
+  height: 360px;
+}
+.ht400 {
+  height: 400px;
+}
+.ht450 {
+  height: 450px;
+}
+.ht500 {
+  height: 500px;
+}
+.ht550 {
+  height: 550px;
+}
+.ht600 {
+  height: 600px;
+}
+
+/* 边距 */
+.pad10 {
+  padding: 10px;
+  box-sizing: border-box;
+}
+.pad20 {
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.padx20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.pady20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.padtop20 {
+  padding-top: 20px;
+}
+.padbot20 {
+  padding-bottom: 20px;
+}
+.padl20 {
+  padding-left: 20px;
+}
+.padr20 {
+  padding-right: 20px;
+}
+.mgbt10 {
+  margin-bottom: 10px;
+}
+.mgbt20 {
+  margin-bottom: 20px;
+}
+.mgbt40 {
+  margin-bottom: 40px;
+}
+.mgtp10 {
+  margin-top: 10px;
+}
+.mgtp20 {
+  margin-top: 20px;
+}
+
+/* 圆角 */
+.radius6{
+  border-radius: 6px;
+}
+.radius8{
+  border-radius: 8px;
+}
+.radius10{
+  border-radius: 10px;
+}
+.radius20{
+  border-radius: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

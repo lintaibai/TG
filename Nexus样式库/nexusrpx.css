@@ -1,0 +1,95 @@
+/* rpx 原子化 uniapp部分 */
+.font08 {
+  font-size: 16rpx;
+}
+.font10{
+  font-size: 20rpx;
+}
+.font13{
+  font-size: 26rpx;
+}
+.font14 {
+  font-size: 28rpx;
+}
+.font16 {
+  font-size: 32rpx;
+}
+.font18 {
+  font-size: 36rpx;
+}
+.font20 {
+  font-size: 40rpx;
+}
+.font24 {
+  font-size: 48rpx;
+}
+.font26 {
+  font-size: 52rpx;
+}
+.font30 {
+  font-size: 60rpx;
+}
+.font44{
+    font-size: 88rpx;
+}
+/* 行高 */
+.lineht20 {
+  line-height: 40rpx;
+}
+.lineht24 {
+  line-height: 48rpx;
+}
+.lineht28 {
+  line-height: 56rpx;
+}
+.lineht30 {
+  line-height: 60rpx;
+}
+/* 边距圆角 */
+.pad10 {
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.pad20 {
+  padding: 40rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.padx20{
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+.pady20{
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+}
+.padtop20{
+  padding-top: 40rpx;
+}
+.padbot20{
+  padding-bottom: 40rpx;
+}
+.padl20{
+  padding-left: 40rpx;
+}
+.padr20{
+  padding-right: 40rpx;
+}
+.mgbt10 {
+  margin-bottom: 20rpx;
+}
+.mgbt20 {
+  margin-bottom: 40rpx;
+}
+.mgbt40 {
+  margin-bottom: 80rpx;
+}
+.redius10 {
+  border-radius: 20rpx;
+  box-sizing: border-box;
+}
+.redius20 {
+  border-radius: 40rpx;
+  box-sizing: border-box;
+}
+

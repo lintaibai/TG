@@ -1,0 +1,137 @@
+/* rem 原子化样式 html font-size为100px */
+.fontpingfan{
+  font-family: PingFangSC, "PingFang SC";
+}
+.font08 {
+  font-size: 0.08rem;
+}
+.font10{
+  font-size: 0.1rem;
+}
+.font13{
+  font-size: 0.13rem;
+}
+.font14 {
+  font-size: 0.14rem;
+}
+.font16 {
+  font-size: 0.16rem;
+}
+.font18 {
+  font-size: 0.18rem;
+}
+.font20 {
+  font-size: 0.2rem;
+}
+.font24 {
+  font-size: 0.24rem;
+}
+.font26 {
+  font-size: 0.26rem;
+}
+.font28 {
+  font-size: 0.28rem;
+}
+.font30 {
+  font-size: 0.3rem;
+}
+.font32 {
+  font-size: 0.32rem;
+}
+.font36 {
+  font-size: 0.36rem;
+}
+.font44{
+    font-size: 0.44rem;
+}
+/* 行高 */
+.lineht20 {
+  line-height: 0.2rem;
+}
+.lineht24 {
+  line-height: 0.24rem;
+}
+.lineht28 {
+  line-height: 0.28rem;
+}
+.lineht30 {
+  line-height: 0.3rem;
+}
+.lineht48 {
+  line-height: 0.48rem;
+}
+.lineht60 {
+  line-height: 0.6rem;
+}
+/* 边距圆角 */
+.pad10 {
+  padding: 0.1rem;
+  box-sizing: border-box;
+}
+.pad20 {
+  padding: 0.2rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.padx20{
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+}
+.pady20{
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.padtop20{
+  padding-top: 0.2rem;
+}
+.padbot20{
+  padding-bottom: 0.2rem;
+}
+.padl10{
+  padding-left: 0.1rem;
+}
+.padr10{
+  padding-right: 0.1rem;
+}
+.padl20{
+  padding-left: 0.2rem;
+}
+.padr20{
+  padding-right: 0.2rem;
+}
+.mg20 {
+  margin: 0.2rem;
+}
+.mgbt10 {
+  margin-bottom: 0.1rem;
+}
+.mgbt20 {
+  margin-bottom: 0.2rem;
+}
+.mgbt40 {
+  margin-bottom: 0.4rem;
+}
+.mgrt20{
+  margin-right: 0.2rem;
+}
+.mgrt40{
+  margin-right: 0.4rem;
+}
+.gap20 {
+  gap:0.2rem;
+}
+.gap-x-20 {
+  gap:0 0.2rem;
+}
+.gap-y-20 {
+  gap:0.2rem 0;
+}
+.redius10 {
+  border-radius: 0.1rem;
+  box-sizing: border-box;
+}
+.redius20 {
+  border-radius: 0.2rem;
+  box-sizing: border-box;
+}
+

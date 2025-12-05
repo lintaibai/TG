@@ -24,7 +24,7 @@ author: 林太白
 | nexus.css | nexus仿tailwindcss|不包含任何尺寸信息|
 | nexuspx.css| px尺寸 | 结合使用 |
 | nexusrem.css |rem(rem尺寸)|font-size固定100px |
-| nexusrpx.css | 20rpx = 10px  | uniapp使用 |
+| nexusrpx.css | 10px =  20rpx | uniapp使用 |
 | nexusmodule.css | 模块化css  | 群友贡献精美模块 |
 
 ### 👉样式
@@ -66,7 +66,7 @@ author: 林太白
 |  | z-7 | z-index: 7; |
 |  | z-8 | z-index: 8; |
 |  | z-9 | z-index: 9; |
-| flex布局 | txt-flex-center | display: flex; justify-content: center; align-items: center; |
+| 布局 | txt-flex-center | display: flex; justify-content: center; align-items: center; |
 |  | absolutecenter | position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); |
 |  | flex | display: flex; |
 |  | flex-nowrap | flex-wrap: nowrap; |

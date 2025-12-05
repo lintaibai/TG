@@ -1,0 +1,155 @@
+/*nexus自研原子化部分样式*/
+/*字体*/
+.font-family-pingfang{
+  font-family: PingFangSC, "PingFang SC";
+}
+.fontw400 {
+  font-weight: 400;
+}
+.fontw430{
+  font-weight: 430;
+}
+.fontw600 {
+  font-weight: 600;
+}
+/* 文字省略 */
+.txtellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.txtellipsis1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.txtellipsis2 {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.txtellipsis3 {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+.txt-flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.w-onehalf{
+  width: 50%;
+}
+.absolutecenter{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+z-fu1{
+  z-index: -1;
+}
+/*与tailwindcss 一致*/
+.whitespace-pre-wrap{
+  white-space: pre-wrap;
+}
+.text-center{
+  text-align: center;
+}
+.text-left{
+  text-align: left;
+}
+.text-right{
+  text-align: right;
+}
+.w-auto{
+    width: auto;
+}
+.w-full{
+  width: 100%;
+}
+.h-full{
+  height: 100%;
+}
+.h-screen{
+  height: 100vh;
+}
+.bg-white{
+  background: #fff;
+}
+.flex{
+  display: flex;
+}
+.flex-nowrap{
+  flex-wrap: nowrap;
+}
+.flex-wrap{
+  flex-wrap: wrap;
+}
+.justify-between{
+  justify-content: space-between;
+}
+.justify-center{
+  justify-content: center;
+}
+.justify-start{
+  justify-content: flex-start;
+}
+.justify-around{
+  justify-content: space-around;
+}
+.overflow-hidden{
+  overflow: hidden;
+}
+.overflow-x-hidden{
+  overflow-x: hidden;
+}
+.overflow-y-hidden{
+  overflow-y: hidden;
+}
+.overflow-y-auto{
+  overflow-y: auto;
+}
+.overflow-x-auto{
+  overflow-x: auto;
+}
+.z-0{
+  z-index: 0;
+}
+.z-1{
+  z-index: 1;
+  position: relative;
+}
+.z-2{
+  z-index: 2;
+}
+.z-3{
+  z-index: 3;
+}
+.z-4{
+  z-index: 4;
+}
+.z-5{
+  z-index: 5;
+}
+.z-6{
+  z-index: 6;
+}
+.z-7{
+  z-index: 7;
+}
+.z-8{
+  z-index: 8;
+}
+.z-9{
+  z-index: 9;
+}
